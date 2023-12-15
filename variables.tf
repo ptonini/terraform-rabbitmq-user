@@ -1,33 +1,23 @@
 variable "username" {}
 
-variable "password" {
-  default = null
-}
+variable "password" {}
 
 variable "user_tags" {
-  type = list(string)
+  type    = list(string)
   default = []
-}
-
-variable "password_length" {
-  default = 16
-}
-
-variable "password_special" {
-  default = false
 }
 
 variable "permissions" {
   type = map(object({
     configure = string
-    write = string
-    read = string
+    write     = string
+    read      = string
   }))
   default = {
     "/" = {
       configure = ".*"
-      write = ".*"
-      read = ".*"
+      write     = ".*"
+      read      = ".*"
     }
   }
 }
